@@ -1,6 +1,6 @@
 node {
   stage('SCM') {
-    git ' https://github.com/shiwanee-code/SimpleCustomerApp.git'
+    git ' https://github.com/shiwanee-code/my-app.git'
   }
   stage('SonarQube analysis') {
     def scannerHome = tool 'sonar-scanner-4.5.0.2216-linux';
