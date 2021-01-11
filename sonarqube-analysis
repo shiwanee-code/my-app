@@ -3,7 +3,7 @@ node {
     git ' https://github.com/shiwanee-code/my-app.git'
   }
   stage('SonarQube analysis') {
-    def scannerHome = tool 'sonar-scanner-4.5.0.2216-linux';
+    def scannerHome = tool 'sonar_scanner';
     withSonarQubeEnv('sonarqube') {
       sh "${scannerHome}/opt/sonar-scanner-4.5.0.2216-linux/"
     }
