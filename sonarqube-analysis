@@ -2,10 +2,16 @@ node {
   stage('SCM') {
     git ' https://github.com/shiwanee-code/my-app.git'
   }
-  stage('SonarQube analysis') {
-    def scannerHome = tool 'sonar_scanner';
-    withSonarQubeEnv('sonarqube') {
-      sh "${scannerHome}/bin/sonar-scanner"
+ stage('Compile-Package'){
+      // Get maven home path
+       
+      sh "mvn package"
+   }
+   
+   stage('SonarQube Analysis') {
+        withSonarQubeEnv('sonar-6') { 
+          sh "mvn sonar:sonar"
+        }
     }
   }
-}
+
